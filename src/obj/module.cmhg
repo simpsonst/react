@@ -1,0 +1,17 @@
+date-string:            28 May 2016
+
+title-string:           ReactorHelp
+
+help-string:            ReactorHelp 1.00 (c) 2016 Steven Simpson
+
+initialisation-code:    module_start
+
+finalisation-code:      module_end
+
+swi-chunk-base-number:  0x0c4380
+
+swi-handler-code:	module_swi
+
+swi-decoding-table:	ReactorHelp WatchSockets RedeemSockets ClaimWord ReleaseWord
+
+event-handler:		event_entry/event_handler 19
