@@ -26,10 +26,7 @@
 #include <system_error>
 
 #include "react/event.hh"
-
-[[noreturn]] static inline void throw_errno() {
-  throw std::system_error(errno, std::system_category());
-}
+#include "teo.hh"
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"

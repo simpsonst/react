@@ -28,13 +28,10 @@
 #include "features.h"
 #include "react/core.hh"
 #include "react/event.hh"
+#include "teo.hh"
 
 using namespace std;
 using namespace react;
-
-[[noreturn]] static inline void throw_errno() {
-  throw system_error(errno, system_category());
-}
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"

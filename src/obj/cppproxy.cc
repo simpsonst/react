@@ -46,6 +46,7 @@ typedef int socklen_t;
 
 #include <ddslib/dllist.hh>
 
+#include "teo.hh"
 #include "react/core.hh"
 #include "react/event.hh"
 #include "react/handlerhelp.hh"
@@ -192,10 +193,6 @@ static int getaddr(struct sockaddr_in &addr, const char *str)
   }
   addr.sin_port = htons(atoi(str));
   return 0;
-}
-
-[[noreturn]] static inline void throw_errno() {
-  throw system_error(errno, system_category());
 }
 
 int main(int argc, const char *const *argv)
