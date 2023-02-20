@@ -32,7 +32,8 @@
 int react_findfd(const fd_set *fds, int nfds, int *pos)
 {
   assert(nfds <= FD_SETSIZE);
-#ifdef NFDBITS
+#if defined NFDBITS && defined __USE_XOPEN && \
+  defined __USE_GNU && defined __USE_MISC
   /* This is a Linux-aware optimisation of this function, using probably
      non-future-proof extracts from the system header files. */
   const unsigned lim = (nfds + NFDBITS - 1) / NFDBITS;
