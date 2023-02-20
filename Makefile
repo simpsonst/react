@@ -196,7 +196,7 @@ cpptest_lib += $(THREADLIBS)
 
 include binodeps.mk
 
-all:: installed-libraries
+all:: installed-libraries VERSION
 
 install:: install-libraries install-headers
 
@@ -207,6 +207,21 @@ endif
 
 tmp/obj/version.o: tmp/obj/react/version.h
 tmp/obj/modmain.mo: tmp/obj/module.h
+
+$(BINODEPS_OUTDIR)/riscos/!React/Docs/README,fff: README.md
+	@$(PRINTF) '[Copy RISC OS export] %s\n' $<
+	@$(MKDIR) "$(@D)"
+	@$(CP) "$<" "$@"
+
+$(BINODEPS_OUTDIR)/riscos/!React/Docs/COPYING,fff: LICENSE.txt
+	@$(PRINTF) '[Copy RISC OS export] %s\n' $<
+	@$(MKDIR) "$(@D)"
+	@$(CP) "$<" "$@"
+
+$(BINODEPS_OUTDIR)/riscos/!React/Docs/VERSION,fff: VERSION
+	@$(PRINTF) '[Copy RISC OS export] %s\n' $<
+	@$(MKDIR) "$(@D)"
+	@$(CP) "$<" "$@"
 
 ifneq ($(VERSION),)
 prepare-version::
